@@ -1,4 +1,3 @@
-Due to security reason i was not able to host this project here is sample image for the project 
 
 
 
@@ -8,7 +7,7 @@ A responsive web application built with React that fetches and displays the late
 
 ## 🔗 Live Demo
 
-> _(Add your live site link here, if deployed)_
+Due to security reason i was not able to host this project here is sample image for the project 
 
 ---
 
@@ -102,12 +101,6 @@ npm run dev
 
 ---
 
-## 📃 License
 
-This project is open-source and available under the [MIT License](LICENSE).
-
-```
-
----
 
 
