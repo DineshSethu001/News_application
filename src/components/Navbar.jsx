@@ -1,12 +1,19 @@
-function Navbar({ setCategory }) {
+function Navbar({ category, setCategory }) {
+  const categories = [
+    "technology",
+    "business",
+    "health",
+    "science",
+    "general",
+    "sports",
+    "entertainment",
+  ];
+
   return (
-    <nav
-      className="navbar navbar-expand-lg bg-body-tertiary"
-      data-bs-theme="dark"
-    >
+    <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          <span className="badge bg-light text-dark fs-4 ">D-code(News)</span>
+          <span className="badge bg-light text-dark fs-4">D-code(News)</span>
         </a>
         <button
           className="navbar-toggler"
@@ -21,45 +28,21 @@ function Navbar({ setCategory }) {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <div
-                className="nav-link"
-                style={{ cursor: "pointer" }}
-                onClick={() => setCategory("technology")}
-              >
-                Technology
-              </div>
-            </li>
-            <li className="nav-item">
-              <div className="nav-link" style={{ cursor: "pointer" }} onClick={() => setCategory("business")}>
-                Business
-              </div>
-            </li>
-            <li className="nav-item">
-              <div className="nav-link" style={{ cursor: "pointer" }} onClick={() => setCategory("health")}>
-                Health
-              </div>
-            </li>
-            <li className="nav-item">
-              <div className="nav-link" style={{ cursor: "pointer" }} onClick={() => setCategory("science")}>
-                Science
-              </div>
-            </li>
-            <li className="nav-item">
-              <div className="nav-link" style={{ cursor: "pointer" }} onClick={() => setCategory("general")}>
-                General
-              </div>
-            </li>
-            <li className="nav-item">
-              <div className="nav-link" style={{ cursor: "pointer" }} onClick={() => setCategory("sports")}>
-                Sports
-              </div>
-            </li>
-            <li className="nav-item">
-              <div className="nav-link" style={{ cursor: "pointer" }} onClick={() => setCategory("entertainment")}>
-                Entertainment
-              </div>
-            </li>
+            {categories.map((cat) => (
+              <li className="nav-item" key={cat}>
+                <a
+                  href="#"
+                  className={`nav-link ${category === cat ? "active text-white fw-bold" : "text-secondary"}`}
+                  style={{ cursor: "pointer" }}
+                  onClick={(e) => {
+                    e.preventDefault(); // prevents page from jumping to top
+                    setCategory(cat);
+                  }}
+                >
+                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
